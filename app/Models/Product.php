@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ProductImage;
+use App\Models\{ProductImage, ProductColor};
 
 class Product extends Model
 {
@@ -36,5 +36,10 @@ class Product extends Model
     public function productImages()
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+
+    public function productColors()
+    {
+        return $this->hasMany(ProductColor::class, 'product_id', 'id');
     }
 }

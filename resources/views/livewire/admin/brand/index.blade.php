@@ -6,7 +6,7 @@
                 <div class="card-header justify-content-between">
                     <h3 class="d-inline-flex p-2 m-0">Brands List</h3>
                     <a href="#" class="btn btn-primary btn-sm float-end mt-1" data-bs-toggle="modal" data-bs-target="#addBrandModal">
-                        <i class="mdi mdi-plus menu-icon" style="vertical-align: middle;"></i>Add Brands
+                        <i class="mdi mdi-plus menu-icon align-middle"></i>Add Brands
                     </a>
                 </div>
                 <div class="card-body">

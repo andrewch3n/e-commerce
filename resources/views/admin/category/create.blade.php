@@ -5,9 +5,9 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="d-inline-flex p-2 m-0">Add Category</h3>
-                <a href="{{ url('admin/category') }}" class="btn btn-secondary btn-sm text-white float-end mt-1">
-                    <i class="mdi mdi-arrow-left-thick menu-icon" style="vertical-align: middle"></i>Back
+                <h3 class="d-inline-flex p-2 mt-2">Add Category</h3>
+                <a href="{{ url('admin/category') }}" class="btn btn-secondary btn-sm text-white float-end mt-2">
+                    <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>Back
                 </a>
             </div>
             <div class="card-body">

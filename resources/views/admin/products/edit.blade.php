@@ -5,9 +5,9 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="d-inline-flex p-2 m-0">Edit Product</h3>
-                <a href="{{ url('admin/products') }}" class="btn btn-secondary btn-sm text-white float-end mt-1">
-                    <i class="mdi mdi-arrow-left-thick menu-icon" style="vertical-align: middle"></i>Back
+                <h3 class="d-inline-flex p-2 mt-2">Edit Product</h3>
+                <a href="{{ url('admin/products') }}" class="btn btn-secondary btn-sm text-white float-end mt-2">
+                    <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>Back
                 </a>
             </div>
             <div class="card-body">
@@ -33,6 +33,11 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
                                 Product Image
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab">
+                                Product Colors
                             </button>
                         </li>
                     </ul>
@@ -191,6 +196,29 @@
                                 @else
                                     <h5>No Image!</h5>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="tab-pane fade border p-3" id="color-tab-pane" role="tabpanel" aria-labelledby="color-tab" tabindex="0">
+                            <div class="mb-3">
+                                <label class="mb-2">Select Color</label>
+                                <hr/>
+                                <div class="row">
+                                    @forelse ($colors as $coloritem)
+                                    <div class="col-md-3">
+                                        <div class="p-2 border mb-3">
+                                            Color: <input type="checkbox" name="colors[{{ $coloritem->id }}]" value="{{ $coloritem->id }}"/>
+                                            {{ $coloritem->name }}
+                                            <br/>
+                                            Quantity: <input type="number" name="colorquantity[{{ $coloritem->id }}]" style="width:70px; border: 1px solid;">
+                                        </div>
+                                    </div>
+                                    @empty
+                                    <div class="col-md-12">
+                                        <h1>No Colors Found!</h1>
+                                    </div>
+                                    @endforelse
+
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -16,12 +16,11 @@
     <link rel="shortcut icon" href="{{asset ('admin/images/favicon.png') }}" />
     @livewireStyles
 </head>
-<body>
+<body id=admin>
     <div class="container-scroller">
         @include('layouts.inc.admin.navbar')
         <div class="container-fluid page-body-wrapper">
             @include('layouts.inc.admin.sidebar')
-
             <div class="main-panel">
                 <div class="content-wrapper">
                     @yield('content')

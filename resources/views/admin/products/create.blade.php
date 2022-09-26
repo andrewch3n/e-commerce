@@ -5,9 +5,9 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="d-inline-flex p-2 m-0">Add Product</h3>
-                <a href="{{ url('admin/products') }}" class="btn btn-secondary btn-sm text-white float-end mt-1">
-                    <i class="mdi mdi-arrow-left-thick menu-icon" style="vertical-align: middle"></i>Back
+                <h3 class="d-inline-flex p-2 mt-2">Add Product</h3>
+                <a href="{{ url('admin/products') }}" class="btn btn-secondary btn-sm text-white float-end mt-2">
+                    <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>Back
                 </a>
             </div>
             <div class="card-body">
@@ -26,12 +26,17 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="detail-tab" data-bs-toggle="tab" data-bs-target="#detail-tab-pane" type="button" role="tab" aria-controls="detail-tab-pane" aria-selected="false">
-                                Contact
+                                Details
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
                                 Product Image
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab" aria-controls="color-tab-pane" aria-selected="false">
+                                Product Color
                             </button>
                         </li>
                     </ul>
@@ -157,13 +162,13 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="mb-2">Trending</label>
-                                        <input type="checkbox" name="trending" style="width:50px;height=50px;" />
+                                        <input type="checkbox" name="trending" />
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="mb-2">Status</label>
-                                        <input type="checkbox" name="status" style="width:50px;height=50px;" />
+                                        <input type="checkbox" name="status" />
                                     </div>
                                 </div>
                             </div>
@@ -171,8 +176,36 @@
                         <div class="tab-pane fade border p-3" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
                             <div class="mb-3">
                                 <label class="mb-2">Upload Product Images</label>
+                                <input type="file" name="image[]" multiple class="form-control" />
                             </div>
-                            <input type="file" name="image[]" multiple class="form-control" />
+                            @error('image')
+                                <div class="text-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="tab-pane fade border p-3" id="color-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
+                            <div class="mb-3">
+                                <label class="mb-2">Select Color</label>
+                                <hr/>
+                                <div class="row">
+                                    @forelse ($colors as $coloritem)
+                                    <div class="col-md-3">
+                                        <div class="p-2 border mb-3">
+                                            Color: <input type="checkbox" name="colors[{{ $coloritem->id }}]" value="{{ $coloritem->id }}"/>
+                                            {{ $coloritem->name }}
+                                            <br/>
+                                            Quantity: <input type="number" name="colorquantity[{{ $coloritem->id }}]" style="width:70px; border: 1px solid;">
+                                        </div>
+                                    </div>
+                                    @empty
+                                    <div class="col-md-12">
+                                        <h1>No Colors Found!</h1>
+                                    </div>
+                                    @endforelse
+
+                                </div>
+                            </div>
                             @error('image')
                                 <div class="text-danger mt-2">
                                     {{ $message }}

@@ -30,9 +30,9 @@
             @endif
             <div class="card">
                 <div class="card-header justify-content-between">
-                    <h3 class="d-inline-flex p-2 m-0">Category</h3>
-                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end mt-1">
-                        <i class="mdi mdi-plus menu-icon" style="vertical-align: middle;"></i>Add Category
+                    <h3 class="d-inline-flex p-2 mt-2">Category</h3>
+                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end mt-2">
+                        <i class="mdi mdi-plus menu-icon align-middle"></i>Add Category
                     </a>
                 </div>
                 <div class="card-body">

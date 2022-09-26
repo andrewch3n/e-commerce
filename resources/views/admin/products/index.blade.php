@@ -10,9 +10,9 @@
 
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="d-inline-flex p-2 m-0">Add Product</h3>
-                <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-sm text-white float-end mt-1">
-                    <i class="mdi mdi-plus menu-icon" style="vertical-align: middle;"></i>Add Product
+                <h3 class="d-inline-flex p-2 mt-2">Add Product</h3>
+                <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-sm text-white float-end mt-2">
+                    <i class="mdi mdi-plus menu-icon align-middle"></i>Add Product
                 </a>
             </div>
             <div class="card-body">
