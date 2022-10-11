@@ -68,7 +68,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/slider') }}">
+            <a class="nav-link" href="{{ url('admin/sliders') }}">
                 <i class="mdi mdi-view-carousel menu-icon"></i>
                 <span class="menu-title">Home Sliders</span>
             </a>
