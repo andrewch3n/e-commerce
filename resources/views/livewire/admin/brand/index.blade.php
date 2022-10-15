@@ -5,7 +5,8 @@
             <div class="card">
                 <div class="card-header justify-content-between">
                     <h3 class="d-inline-flex p-2 m-0">Brands List</h3>
-                    <a href="#" class="btn btn-primary btn-sm float-end mt-1" data-bs-toggle="modal" data-bs-target="#addBrandModal">
+                    <a href="#" class="btn btn-primary btn-sm float-end mt-1" data-bs-toggle="modal"
+                        data-bs-target="#addBrandModal">
                         <i class="mdi mdi-plus menu-icon align-middle"></i>Add Brands
                     </a>
                 </div>
@@ -15,6 +16,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -22,24 +24,35 @@
                         </thead>
                         <tbody>
                             @forelse ($brands as $brand)
-                            <tr>
-                                <td>{{ $brand->id }}</td>
-                                <td>{{ $brand->name }}</td>
-                                <td>{{ $brand->slug }}</td>
-                                <td>{{ $brand->status =='1'?'hidden':'visible'}}</td>
-                                <td>
-                                    <a href="#" wire:click="editBrand({{ $brand->id }})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-sm btn-warning">
-                                        <i class="mdi mdi-pencil menu-icon"></i>
-                                    </a>
-                                    <a href="#" wire:click="deleteBrand({{ $brand->id }})" data-bs-toggle="modal" data-bs-target="#deleteBrandModal" class="btn btn-sm btn-danger">
-                                        <i class="mdi mdi-delete menu-icon"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $brand->id }}</td>
+                                    <td>{{ $brand->name }}</td>
+                                    <td>
+                                        @if ($brand->category)
+                                            {{ $brand->category->name }}
+                                        @else
+                                            No Category!
+                                        @endif
+                                    </td>
+                                    <td>{{ $brand->slug }}</td>
+                                    <td>{{ $brand->status == '1' ? 'hidden' : 'visible' }}</td>
+                                    <td>
+                                        <a href="#" wire:click="editBrand({{ $brand->id }})"
+                                            data-bs-toggle="modal" data-bs-target="#updateBrandModal"
+                                            class="btn btn-sm btn-warning p-1">
+                                            <i class="mdi mdi-pencil menu-icon"></i>
+                                        </a>
+                                        <a href="#" wire:click="deleteBrand({{ $brand->id }})"
+                                            data-bs-toggle="modal" data-bs-target="#deleteBrandModal"
+                                            class="btn btn-sm btn-danger p-1">
+                                            <i class="mdi mdi-delete menu-icon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             @empty
-                            <tr>
-                                <td colspan="5">No Brands Found!</td>
-                            </tr>
+                                <tr>
+                                    <td colspan="5">No Brands Found!</td>
+                                </tr>
                             @endforelse
 
                         </tbody>
@@ -54,13 +67,11 @@
 </div>
 
 @push('script')
-
-<script>
-    window.addEventListener('close-modal',event=>{
-        $('#addBrandModal').modal('hide');
-        $('#updateBrandModal').modal('hide');
-        $('#deleteBrandModal').modal('hide');
-    });
-</script>
-
+    <script>
+        window.addEventListener('close-modal', event => {
+            $('#addBrandModal').modal('hide');
+            $('#updateBrandModal').modal('hide');
+            $('#deleteBrandModal').modal('hide');
+        });
+    </script>
 @endpush

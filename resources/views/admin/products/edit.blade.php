@@ -212,7 +212,7 @@
                                             @foreach ($product->productImages as $image)
                                                 <div class="col-md-2">
                                                     <img src="{{ asset($image->image) }}"
-                                                        style="width :150px;height :250px;" class="me-4 border"
+                                                        style="width :auto;height :250px;" class="me-4 border"
                                                         alt="Img" />
                                                     <a href="{{ url('admin/product-image/' . $image->id . '/delete') }}"
                                                         class="d-block">Remove</a>
