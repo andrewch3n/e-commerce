@@ -3,7 +3,7 @@
 @section('title', 'All Categories')
 
 @section('content')
-    <h4>Category</h4>
+    <h4 class="d-inline-flex p-2">Category</h4>
 
     <div class="py-3 py-md-5 bg-light">
         <div class="container">
