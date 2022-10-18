@@ -5,7 +5,7 @@
 @section('content')
     <h4 class="d-inline-flex p-2">Category</h4>
 
-    <div class="py-3 py-md-5 bg-light">
+    <div class="py-3 py-md-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

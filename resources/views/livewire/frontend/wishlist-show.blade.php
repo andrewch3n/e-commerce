@@ -1,5 +1,5 @@
 <div>
-    <div class="py-3 py-md-5 bg-light">
+    <div class="py-3 py-md-5">
         <div class="container">
             <h3>My Wishlist</h3>
             <hr>
@@ -31,7 +31,7 @@
                                                 href="{{ url('collections/' . $wishlistItem->product->category->slug . '/' . $wishlistItem->product->slug) }}">
                                                 <label class="product-name">
                                                     <img src="{{ $wishlistItem->product->productImages[0]->image }}"
-                                                        style="width: auto; height: 50px"
+                                                        style="width: 50px; height: 50px"
                                                         alt="{{ $wishlistItem->product->name }}" />
                                                     {{ $wishlistItem->product->name }}
                                                 </label>
