@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 
-<body id=admin>
+<body>
     <div class="container-scroller">
         @include('layouts.inc.admin.navbar')
         <div class="container-fluid page-body-wrapper">

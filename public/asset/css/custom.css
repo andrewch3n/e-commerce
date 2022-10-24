@@ -361,3 +361,9 @@
 }
 
 /* Checkout */
+
+
+.btn.btn-danger {
+    width: 100%;
+    align-items: center;
+}
