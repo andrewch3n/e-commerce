@@ -11,7 +11,7 @@
                 <div class="card-header justify-content-between">
                     <h3 class="d-inline-flex p-2 mt-2">Add Color</h3>
                     <a href="{{ url('admin/colors') }}" class="btn btn-outline-secondary btn-sm text-white float-end mt-2">
-                        <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>Back
+                        <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>
                     </a>
                 </div>
                 <div class="card-body">

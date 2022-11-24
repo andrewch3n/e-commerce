@@ -51,7 +51,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5">No Brands Found!</td>
+                                    <td colspan="6" class="text-center">No Brands Found!</td>
                                 </tr>
                             @endforelse
 

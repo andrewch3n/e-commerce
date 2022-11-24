@@ -6,11 +6,24 @@
 
     <div class="row">
         <div class="col-md-12">
+
+            @if (session('message'))
+                <div class="alert alert-success mb-3">{{ session('message') }}</div>
+            @endif
             <div class="card">
                 <div class="card-header justify-content-between">
                     <h3 class="d-inline-flex p-2 mt-2">My Order Details</h3>
-                    <a href="{{ url('admin/orders') }}" class="btn btn-secondary btn-sm text-white float-end mt-2">
-                        <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>Back
+                    <a href="{{ url('admin/orders') }}" class="btn btn-secondary btn-sm text-white float-end m-2">
+                        <i class="mdi mdi-arrow-left-thick menu-icon align-middle"></i>
+                    </a>
+                    <a href="{{ url('admin/invoice/' . $order->id . '/generate') }}"
+                        class="btn btn-primary btn-sm text-white float-end m-2">
+                        <i class="mdi mdi-download menu-icon align-middle"></i>
+                    </a>
+
+                    <a href="{{ url('admin/invoice/' . $order->id) }}" target="_blank"
+                        class="btn btn-warning btn-sm text-white float-end m-2">
+                        <i class="mdi mdi-view-list menu-icon align-middle"></i>
                     </a>
                 </div>
                 <div class="card-body">
@@ -58,7 +71,7 @@
                                 @endphp
                                 @foreach ($order->orderItems as $orderItem)
                                     <tr>
-                                        <td width="10%">{{ $ordetItem->id }}</td>
+                                        <td width="10%">{{ $orderItem->id }}</td>
                                         <td width="10%">
                                             @if ($orderItem->product->productImages)
                                                 <img src="{{ asset($orderItem->product->productImages[0]->image) }}"
@@ -77,10 +90,10 @@
                                                 @endif
                                             @endif
                                         </td>
-                                        <td width="10%">${{ $ordetItem->price }}</td>
-                                        <td width="10%">{{ $ordetItem->quantity }}</td>
+                                        <td width="10%">${{ $orderItem->price }}</td>
+                                        <td width="10%">{{ $orderItem->quantity }}</td>
                                         <td width="10%" class="fw-bold">
-                                            ${{ $ordetItem->quantity * $ordetItem->price }}
+                                            ${{ $orderItem->quantity * $orderItem->price }}
                                         </td>
                                         @php
                                             $totalPrice += $orderItem->quantity * $orderItem->price;
@@ -93,6 +106,53 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border mt-3">
+                <div class="card-body">
+                    <h4>Order Process (Order Status Updates)</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <form action="{{ url('admin/orders/' . $order->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+
+                                <label class="pb-2">Update Your Status</label>
+                                <div class="input-group">
+                                    <select name="order_status" class="form-select">
+                                        <option value="">Select Order Status</option>
+                                        <option value="in progress"
+                                            {{ Request::get('status') == 'in progress' ? 'selected' : '' }}>In progress
+                                        </option>
+                                        <option value="completed"
+                                            {{ Request::get('status') == 'completed' ? 'selected' : '' }}>
+                                            Completed</option>
+                                        <option value="pending"
+                                            {{ Request::get('status') == 'pending' ? 'selected' : '' }}>
+                                            Pending</option>
+                                        <option value="canceled"
+                                            {{ Request::get('status') == 'canceled' ? 'selected' : '' }}>
+                                            Canceled</option>
+                                        <option value="out-for-delivery"
+                                            {{ Request::get('status') == 'out-for-delivery' ? 'selected' : '' }}>Out for
+                                            delivery
+                                        </option>
+                                    </select>
+
+                                    <button type="submit" class="btn btn-primary text-white">Update</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-7">
+                            <br />
+                            <h4 class="mt-3">Order Status:
+                                <span class="text-uppercase">{{ $order->status_message }}</span>
+                            </h4>
+                        </div>
                     </div>
                 </div>
             </div>
