@@ -26,7 +26,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('asset/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link href="{{ asset('asset/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/owl.theme.default.min.css') }}" rel="stylesheet">
+
+    <!-- Exzoom for Product Image-->
+    <link href="{{ asset('asset/exzoom/jquery.exzoom.css') }}" rel="stylesheet">
+
     <link href="{{ asset('asset/css/custom.css') }}" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     @livewireStyles
@@ -39,6 +49,8 @@
         <main class="py-3">
             @yield('content')
         </main>
+
+        @include('layouts.inc.frontend.footer')
     </div>
 
     <script src="{{ asset('asset/js/bootstrap.bundle.min.js') }}"></script>
@@ -53,6 +65,11 @@
             }
         })
     </script>
+    <script src="{{ asset('asset/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('asset/exzoom/jquery.exzoom.js') }}"></script>
+
+    @yield('script')
+
     @livewireScripts
     @stack('scripts')
 </body>
