@@ -13,32 +13,36 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false"
-                aria-controls="category">
+            <a class="nav-link" data-bs-toggle="collapse" href="#category">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Category</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="category">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/admin/category/create') }}">Add Category</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/category/create') }}">Add Category</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/admin/category') }}">View Category</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/category') }}">View Category</a>
+                    </li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#products" aria-expanded="false"
-                aria-controls="products">
+            <a class="nav-link" data-bs-toggle="collapse" href="#products">
                 <i class="mdi mdi-plus-circle menu-icon"></i>
                 <span class="menu-title">Products</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="products">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/admin/products/create') }}">Add
-                            Products</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('/admin/products') }}">View Products</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/products/create') }}">Add Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/products') }}">View Products</a>
+                    </li>
                 </ul>
             </div>
         </li>
@@ -55,7 +59,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
+            <a class="nav-link" data-bs-toggle="collapse" href="#users">
                 <i class="mdi mdi-account menu-icon"></i>
                 <span class="menu-title">Users</span>
                 <i class="menu-arrow"></i>
