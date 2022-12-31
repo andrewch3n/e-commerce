@@ -13,7 +13,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#category">
+            <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Category</span>
                 <i class="menu-arrow"></i>
@@ -30,7 +30,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#products">
+            <a class="nav-link" data-bs-toggle="collapse" href="#products" aria-expanded="false">
                 <i class="mdi mdi-plus-circle menu-icon"></i>
                 <span class="menu-title">Products</span>
                 <i class="menu-arrow"></i>
@@ -59,15 +59,16 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#users">
+            <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false">
                 <i class="mdi mdi-account menu-icon"></i>
                 <span class="menu-title">Users</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="users">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Add User </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> View Users </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/admin/users/create') }}"> Add User </a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/admin/users') }}"> View Users </a></li>
                 </ul>
             </div>
         </li>
@@ -78,7 +79,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{ url('admin/settings') }}">
                 <i class="mdi mdi-settings menu-icon"></i>
                 <span class="menu-title">Site Settings</span>
             </a>

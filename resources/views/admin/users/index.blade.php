@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Users List')
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -9,10 +11,10 @@
 
             <div class="card">
                 <div class="card-header justify-content-between">
-                    <h3 class="d-inline-flex p-2 mt-2">Products</h3>
-                    <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-sm text-white float-end mt-2"
-                        id="products">
-                        <i class="mdi mdi-plus menu-icon align-middle"></i>Add Product
+                    <h3 class="d-inline-flex p-2 mt-2">Users</h3>
+                    <a href="{{ url('admin/users/create') }}" class="btn btn-primary btn-sm text-white float-end mt-2"
+                        id="users">
+                        <i class="mdi mdi-plus menu-icon align-middle"></i>Add User
                     </a>
                 </div>
                 <div class="card-body">
@@ -20,36 +22,33 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Category</th>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Status</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($products as $product)
+                            @forelse ($users as $user)
                                 <tr>
-                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
                                     <td>
-                                        @if ($product->category)
-                                            {{ $product->category->name }}
+                                        @if ($user->role_as == '0')
+                                            <label class="badge btn-primary">user</label>
+                                        @elseif ($user->role_as == '1')
+                                            <label class="badge btn-success">admin</label>
                                         @else
-                                            No Category
+                                            <label class="badge btn-warning">none</label>
                                         @endif
-
                                     </td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->selling_price }}</td>
-                                    <td>{{ $product->quantity }}</td>
-                                    <td>{{ $product->status == '1' ? 'hidden' : 'visible' }}</td>
                                     <td>
-                                        <a href="{{ url('admin/products/' . $product->id . '/edit') }}"
+                                        <a href="{{ url('admin/users/' . $user->id . '/edit') }}"
                                             class="btn btn-sm btn-warning">
                                             <i class="mdi mdi-pencil menu-icon"></i>
                                         </a>
-                                        <a href="{{ url('admin/products/' . $product->id . '/delete') }}"
+                                        <a href="{{ url('admin/users/' . $user->id . '/delete') }}"
                                             onclick="return confirm('Are you sure you want to delete?')"
                                             class="btn btn-sm btn-danger">
                                             <i class="mdi mdi-delete menu-icon"></i>
@@ -58,13 +57,13 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7" class="text-center">No Products Available!</td>
+                                    <td colspan="5" class="text-center">No Users Available!</td>
                                 </tr>
                             @endforelse
                         </tbody>
                     </table>
                     <div>
-                        {{ $products->links() }}
+                        {{ $users->links() }}
                     </div>
                 </div>
             </div>

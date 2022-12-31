@@ -1,5 +1,6 @@
 <div>
-    <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -31,7 +32,8 @@
             <div class="card">
                 <div class="card-header justify-content-between">
                     <h3 class="d-inline-flex p-2 mt-2">Category</h3>
-                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end mt-2">
+                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary btn-sm float-end mt-2"
+                        id="category">
                         <i class="mdi mdi-plus menu-icon align-middle"></i>Add Category
                     </a>
                 </div>
@@ -47,19 +49,22 @@
                         </thead>
                         <tbody>
                             @foreach ($categories as $category)
-                            <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->status =='1' ? 'Hidden':'Visible' }}</td>
-                                <td>
-                                    <a href="{{ url('admin/category/'.$category->id.'/edit') }}" class="btn btn-sm btn-warning">
-                                        <i class="mdi mdi-pencil menu-icon"></i>
-                                    </a>
-                                    <a href="#" wire:click="deleteCategory({{$category->id}})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-sm btn-danger">
-                                        <i class="mdi mdi-delete menu-icon"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->status == '1' ? 'Hidden' : 'Visible' }}</td>
+                                    <td>
+                                        <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
+                                            class="btn btn-sm btn-warning">
+                                            <i class="mdi mdi-pencil menu-icon"></i>
+                                        </a>
+                                        <a href="#" wire:click="deleteCategory({{ $category->id }})"
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                            class="btn btn-sm btn-danger">
+                                            <i class="mdi mdi-delete menu-icon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -73,11 +78,9 @@
 </div>
 
 @push('script')
-
-<script>
-    window.addEventListener('close-modal',event=>{
-        $('#deleteModal').modal('hide');
-    });
-</script>
-
+    <script>
+        window.addEventListener('close-modal', event => {
+            $('#deleteModal').modal('hide');
+        });
+    </script>
 @endpush
