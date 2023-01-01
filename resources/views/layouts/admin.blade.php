@@ -8,13 +8,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> @yield('title') | {{config('app.name','Admin Site')}}</title>
+    <title> @yield('title') | {{ config('app.name', 'Admin Site') }}</title>
 
     <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" />
+    <style>
+        .sidebar .nav .nav-item.active {
+            background-color: #e9e9e9;
+        }
+    </style>
     @livewireStyles
 </head>
 

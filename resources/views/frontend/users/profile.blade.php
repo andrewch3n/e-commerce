@@ -7,7 +7,10 @@
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col-md-10">
-                    <h4>My Profile</h4>
+                    <h4>
+                        My Profile
+                        <a href="{{ url('change-password') }}" class="btn btn-warning float-end">Change Password ?</a>
+                    </h4>
                     <div class="underline mb-4"></div>
                 </div>
 

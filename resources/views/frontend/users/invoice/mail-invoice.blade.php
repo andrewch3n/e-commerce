@@ -105,6 +105,14 @@
 
 <body>
 
+    <div class="text-center">
+        <h2>Thank you for your order!</h2>
+        <p>
+            Thank you for purchasing with {{ $appSetting->website_name }}.
+            <br />
+            Your Order Items and Details are provided below.
+        </p>
+    </div>
     <table class="order-details">
         <thead>
             <tr>

@@ -24,6 +24,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections', 'categories');
     Route::get('/collections/{category_slug}', 'products');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
+
     Route::get('/new-arrivals', 'newArrival');
     Route::get('/featured', 'featuredProducts');
     Route::get('thank-you', 'thankyou');
@@ -41,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('profile', [App\Http\Controllers\Frontend\UserController::class, 'index']);
     Route::post('profile', [App\Http\Controllers\Frontend\UserController::class, 'updateUserDetail']);
+
+    Route::get('change-password', [App\Http\Controllers\Frontend\UserController::class, 'passwordCreate']);
+    Route::post('change-password', [App\Http\Controllers\Frontend\UserController::class, 'changePassword']);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -103,6 +107,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/invoice/{orderId}', 'viewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+        Route::get('/invoice/{orderId}/mail', 'mailInvoice');
     });
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {

@@ -20,10 +20,13 @@
                         class="btn btn-primary btn-sm text-white float-end m-2">
                         <i class="mdi mdi-download menu-icon align-middle"></i>
                     </a>
-
                     <a href="{{ url('admin/invoice/' . $order->id) }}" target="_blank"
                         class="btn btn-warning btn-sm text-white float-end m-2">
                         <i class="mdi mdi-view-list menu-icon align-middle"></i>
+                    </a>
+                    <a href="{{ url('admin/invoice/' . $order->id . '/mail') }}"
+                        class="btn btn-info btn-sm text-white float-end m-2">
+                        <i class="mdi mdi-email menu-icon align-middle"></i>
                     </a>
                 </div>
                 <div class="card-body">
